@@ -1,0 +1,40 @@
+
+<div class="scroll">
+<div class="container">
+<div class="title">
+<h2 class="font" style="font-size: 2vw;">{{title}}</h2>
+<h4  class="font" style="font-size: 1vw;">{{subTitle}}</h4>
+</div>
+  <!--
+  Video from Youtube - you need to use youtube API for more details about the video
+-->
+<div id="player" *ngIf="this.YouTubeUrl">
+  
+</div>
+
+<!-- Video from Vimeo -->
+<div *ngIf="this.VimeoUrl">
+<iframe [src]="this.vimeoUrl | safe"  class="video" frameborder = "0" #vimeo ></iframe>
+</div>
+
+  <!-- Video from URL -->
+<video  #videoPlayer  class="video" controls *ngIf="this.VideoMp4 || this.VideoOgg">
+  <source src="{{videoMp4}}" type="video/mp4">
+    <source src="{{videoOgg}}" type="video/ogg">   
+</video>
+
+
+
+
+<!-- image for modal view -->
+<div class="subContainer">
+    <img src="../../assets/modal.jpg" alt="Image" class="responsive resize" (click)="openModal()">
+</div>
+
+</div>
+
+
+</div>
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Bey4XXJAqS8" frameborder="0" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
