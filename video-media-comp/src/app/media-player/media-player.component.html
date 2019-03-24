@@ -1,0 +1,31 @@
+<div class="scroll">
+  <div class="video-container">
+    <div class="title" #title>
+      <ng-content select="[title]"></ng-content> -
+      <ng-content select="[subtitle]"></ng-content>
+    </div>
+    <!--
+      Video from Youtube - you need to use youtube API for more details about the video
+      <div id="player" *ngIf="this.YouTubeUrl"></div>
+      Video from Vimeo
+    -->
+    <!--
+      <div *ngIf="this.VimeoUrl">
+        <iframe [src]="this.vimeoUrl | safe" class="video" frameborder="0" #vimeo></iframe>
+      </div>
+    -->
+
+    <!-- Video from URL -->
+    <video
+      #videoPlayer
+      class="video"
+      controls
+      *ngIf="this.videoMp4 || this.videoOgg"
+    >
+      <source src="{{videoMp4}}" type="video/mp4" />
+      <source src="{{videoOgg}}" type="video/ogg" />
+    </video>
+    <!-- image for modal view -->
+    <button (click)="openModal()">Open In Modal</button>
+  </div>
+</div>
